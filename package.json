@@ -1,0 +1,15 @@
+{
+  "name": "serverless-email-api",
+  "version": "1.0.0",
+  "description": "A serverless email API built with Python, AWS Lambda, and SendGrid that allows sending emails via REST API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "serverless-offline": "^14.4.0"
+  }
+}

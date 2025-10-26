@@ -1,0 +1,33 @@
+service: serverless-email-api
+
+frameworkVersion: '4'
+
+provider:
+  name: aws
+  runtime: python3.9
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-1'}
+  environment:
+    AWS_REGION: ${self:provider.region}
+  # No IAM permissions needed for SendGrid (uses API key)
+
+functions:
+  sendEmail:
+    handler: handler.send_email
+    events:
+      - http:
+          path: /send-email
+          method: post
+          cors: true
+    environment:
+      FROM_EMAIL: ${env:FROM_EMAIL}
+      SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 8080
+    lambdaPort: 8081
+    host: 0.0.0.0
