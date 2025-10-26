@@ -1,2 +1,41 @@
-echo ".env" >> .gitignore
-git add .gitignore
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*.log
+
+# Virtual environment
+env/
+venv/
+ENV/
+
+# Django
+*.sqlite3
+*.db
+db.sqlite3
+*.pot
+*.pyc
+*.mo
+*.log
+*.pid
+*.seed
+
+# Static & media files
+staticfiles/
+media/
+
+# IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
