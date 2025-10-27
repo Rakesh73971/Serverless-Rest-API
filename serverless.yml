@@ -2,6 +2,8 @@ service: serverless-email-api
 
 frameworkVersion: '4'
 
+useDotenv: true
+
 provider:
   name: aws
   runtime: python3.9
@@ -9,7 +11,6 @@ provider:
   region: ${opt:region, 'us-east-1'}
   environment:
     AWS_REGION: ${self:provider.region}
-  # No IAM permissions needed for SendGrid (uses API key)
 
 functions:
   sendEmail:
@@ -24,6 +25,7 @@ functions:
       SENDGRID_API_KEY: ${env:SENDGRID_API_KEY}
 
 plugins:
+  - serverless-dotenv-plugin
   - serverless-offline
 
 custom:
